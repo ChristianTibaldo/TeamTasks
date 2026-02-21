@@ -32,4 +32,3 @@ form.addEventListener('submit', async (e) => {
         output.textContent = err.message;
     }
 });
-//
