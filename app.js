@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost/api-jwt'; // es: http://localhost/api
+const API_BASE = 'http://localhost/TeaqmTasks'; // es: http://localhost/api
 
 const form = document.getElementById('loginForm');
 const output = document.getElementById('output');
@@ -8,7 +8,8 @@ form.addEventListener('submit', async (e) => {
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-
+    console.log(username)
+    console.log(password)
     try {
         const response = await fetch(`${API_BASE}/login`, {
             method: 'POST',
@@ -19,7 +20,7 @@ form.addEventListener('submit', async (e) => {
         });
 
         const data = await response.json();
-
+        console.log(respone)
         if (!response.ok) {
             throw new Error(data.error || 'Errore di login');
         }
@@ -29,6 +30,7 @@ form.addEventListener('submit', async (e) => {
 
         output.textContent = 'Login effettuato con successo';
     } catch (err) {
+        console.log(JSON.stringify({ username, password }))
         output.textContent = err.message;
     }
 });

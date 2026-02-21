@@ -11,6 +11,7 @@ $parts  = explode('/', $path);
 if ($path === 'login' && $method === 'POST') {
 
     $input = json_decode(file_get_contents('php://input'), true);
+    //echo json_encode($input);
 
     if ($input['username'] === 'admin' && $input['password'] === 'password') {
         echo json_encode([
@@ -22,5 +23,10 @@ if ($path === 'login' && $method === 'POST') {
     }
     exit;
 }
+
+
+
+http_response_code(404);
+echo json_encode(['error' => 'Endpoint non valido']);
 
 //a
