@@ -2,10 +2,13 @@
 
 header('Content-Type: application/json');
 require_once 'jwt.php';
+require_once 'utils.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $path   = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 $parts  = explode('/', $path);
+
+$path = str_replace(getBasePath(), '', $path);
 
 
 if ($path === 'login' && $method === 'POST') {

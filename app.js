@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost/TeaqmTasks'; // es: http://localhost/api
+const API_BASE = 'http://localhost/TeamTasks'; // es: http://localhost/api
 
 const form = document.getElementById('loginForm');
 const output = document.getElementById('output');
@@ -20,7 +20,7 @@ form.addEventListener('submit', async (e) => {
         });
 
         const data = await response.json();
-        console.log(respone)
+        console.log(response)
         if (!response.ok) {
             throw new Error(data.error || 'Errore di login');
         }
